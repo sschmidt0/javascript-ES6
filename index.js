@@ -61,3 +61,15 @@ console.log(sentence);
 const reverseString = (str) => [...str].reverse().join('');
 
 console.log(reverseString('Schmidt'));
+
+
+// Exercici 5
+function b() {
+  // ...
+}
+
+async function a() {
+  await b();
+  doMoreWork();
+}
+
