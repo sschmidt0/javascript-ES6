@@ -87,3 +87,32 @@ console.log(tasks2);
 
 const tasks3 = tasks.map(item => item.name);
 console.log(tasks3);
+
+
+// NIVELL 2 - exercici 7
+let prompt1, prompt2;
+const getValues = () => {
+  prompt1 = prompt('Quin nombre vols multipliar', 1);
+  prompt2 = prompt('Fins a quin nombre vols multiplicar', 1);
+
+  console.log('from', prompt1);
+  console.log('to', prompt2);
+}
+
+const printValues = (num1, num2) => {
+  console.log(num2);
+  for (let i = 0; i <= num2-1; i++) {
+    console.log(`${num1} * ${i+1} = ${num1 * (i+1)}`);
+  }
+}
+
+const taulaMultiplicar = async () => {
+  console.log('executing taulaMultiplicar');
+  await getValues();
+  console.log('calculem amb:');
+  await printValues(prompt1, prompt2);
+};
+
+taulaMultiplicar();
+
+
