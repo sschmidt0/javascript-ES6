@@ -73,3 +73,17 @@ async function a() {
   doMoreWork();
 }
 
+
+// Exercici 6
+const tasks = [
+  { 'name' : 'Start React web', 'duration' : 120 },
+  { 'name' : 'Work out', 'duration' : 60 },
+  { 'name' : 'Procrastinate on facebook', 'duration' : 240 }
+];
+
+const tasks2 = [];
+tasks.forEach(item => tasks2.push(item.name));
+console.log(tasks2);
+
+const tasks3 = tasks.map(item => item.name);
+console.log(tasks3);
