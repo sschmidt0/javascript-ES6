@@ -46,3 +46,12 @@ let usersFirstName = users.map(user => {
 });
 
 console.log(usersFirstName);
+
+
+// Exercici 3
+const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
+const sentence = epic.reduce((prevVal, currVal, idx) => {
+  return idx == 0 ? currVal : prevVal + ' ' + currVal;
+});
+
+console.log(sentence);
