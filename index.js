@@ -55,3 +55,9 @@ const sentence = epic.reduce((prevVal, currVal, idx) => {
 });
 
 console.log(sentence);
+
+
+// Exercici 4
+const reverseString = (str) => [...str].reverse().join('');
+
+console.log(reverseString('Schmidt'));
