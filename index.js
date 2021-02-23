@@ -183,4 +183,22 @@ calculateBtn.addEventListener('click', (e) => {
 });
 
 
+// Nivell 3 - exercici 9
+let inputField = document.getElementById("myInput");
+let nameList = document.getElementById("myUL");
 
+function filterNames() {
+  let filter, li, a;
+  filter = inputField.value.toUpperCase();
+  li = nameList.getElementsByTagName("li");
+  for (let i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+inputField.addEventListener('focus', () => nameList.style.display = 'block');
