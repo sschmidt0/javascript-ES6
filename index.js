@@ -121,6 +121,7 @@ const num1 = document.getElementById('num1');
 const num2 = document.getElementById('num2');
 const calculateBtn = document.getElementById('calcular');
 const calculateForm = document.getElementById('calculateForm');
+const divTable = document.getElementById('calculate-table');
 const tableMultiplicar = document.getElementById('table-multiplicar');
 const tableBody = document.getElementById('table-body');
 
@@ -163,19 +164,6 @@ const validation = (nombre, field) => {
   return errors;
 }
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  calculateForm.classList.remove('is-invalid');
-
-  let errorsNum1 = validation(num1, 1);
-  let errorsNum2 = validation(num2, 2);
-
-  if(!errorsNum1 && !errorsNum2) {
-    taulaMultiplicarToTable(num1.value, num2.value);
-  }
-}
-
 calculateForm.addEventListener('blur', (e) => {
   if (e.target.value != '') e.target.classList.remove('is-invalid');
 }, true);
@@ -188,5 +176,11 @@ calculateBtn.addEventListener('click', (e) => {
   let errorsNum1 = validation(num1, 1);
   let errorsNum2 = validation(num2, 2);
 
-  if(!errorsNum1 && !errorsNum2) taulaMultiplicarToTable(num1.value, num2.value);
+  if(!errorsNum1 && !errorsNum2) {
+    divTable.style.display = 'block';
+    taulaMultiplicarToTable(num1.value, num2.value);
+  }
 });
+
+
+

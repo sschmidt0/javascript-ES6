@@ -11,7 +11,26 @@
   <title>S4.ES6</title>
 </head>
 <body>
-  <h1>Taules de multiplicar</h1>
+  <h2>Buscar noms</h2>
+  <div class="search">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">--></span>
+      </div>
+      <input type="text" class="form-control" id="myInput" onkeyup="filterNames()" placeholder="Buscar nom..." title="Buscar nom" aria-label="search">
+    </div>
+
+    <ul class="list-group" id="myUL">
+      <li class="list-group-item"><a href="#">Albert</a></li>
+      <li class="list-group-item"><a href="#">Ismael</a></li>
+      <li class="list-group-item"><a href="#">Luis</a></li>
+      <li class="list-group-item"><a href="#">Rubén</a></li>
+      <li class="list-group-item"><a href="#">Jonatan</a></li>
+      <li class="list-group-item"><a href="#">Jake</a></li>
+      <li class="list-group-item"><a href="#">Jose</a></li>
+    </ul>
+  </div>
+  <h2>Taules de multiplicar</h2>
   <div class="calculate-container">
     <form id="calculateForm">
       <div class="modal-body">
@@ -30,7 +49,7 @@
     </form>
   </div>
 
-  <div class="calculate-table">
+  <div id="calculate-table">
     <table class="table table-striped table-multiplicar">
       <thead>
         <tr>

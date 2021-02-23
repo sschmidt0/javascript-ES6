@@ -1,4 +1,4 @@
-h1 {
+h2 {
   margin-top: 50px;
   text-align: center;
 }
@@ -8,7 +8,22 @@ h1 {
   margin: 40px auto 50px;
 }
 
-.calculate-table {
+#calculate-table {
   width: 400px;
-  margin: auto;
+  margin: 0 auto 70px;
+  display: none;
+}
+
+.search {
+  width: 270px;
+  margin: 30px auto;
+}
+
+#myUL {
+  display: none;
+}
+
+.list-group-item > a {
+  text-decoration: none;
+  color: rgb(21, 54, 143);
 }
