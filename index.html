@@ -4,10 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap: CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
   <title>S4.ES6</title>
 </head>
 <body>
+  <h1>Taules de multiplicar</h1>
+  <div class="calculate-container">
+    <form id="calculateForm">
+      <div class="modal-body">
+        <div class="form-group mb-3">
+          <label for="num1" class="form-label">Nombre 1</label>
+          <input type="number" class="form-control" id="num1" aria-describedby="emailHelp">
+          <div class="invalid-feedback" id="error_num1"></div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="num2" class="form-label">Nombre 2</label>
+          <input type="number" class="form-control" id="num2">
+          <div class="invalid-feedback" id="error_num2"></div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" id="calcular">Calcular</button>
+    </form>
+  </div>
 
+  <div class="calculate-table">
+    <table class="table table-striped table-multiplicar">
+      <thead>
+        <tr>
+          <th scope="col">Vegades</th>
+          <th scope="col">Calcul</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap: JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <script src="index.js"></script>
 </body>
 </html>

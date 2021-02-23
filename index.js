@@ -90,29 +90,103 @@ console.log(tasks3);
 
 
 // NIVELL 2 - exercici 7
-let prompt1, prompt2;
-const getValues = () => {
-  prompt1 = prompt('Quin nombre vols multipliar', 1);
-  prompt2 = prompt('Fins a quin nombre vols multiplicar', 1);
+// let prompt1, prompt2;
+// const getValues = () => {
+//   prompt1 = prompt('Quin nombre vols multipliar', 1);
+//   prompt2 = prompt('Fins a quin nombre vols multiplicar', 1);
 
-  console.log('from', prompt1);
-  console.log('to', prompt2);
-}
+//   console.log('from', prompt1);
+//   console.log('to', prompt2);
+// }
 
-const printValues = (num1, num2) => {
-  console.log(num2);
+// const printValues = (num1, num2) => {
+//   console.log(num2);
+//   for (let i = 0; i <= num2-1; i++) {
+//     console.log(`${num1} * ${i+1} = ${num1 * (i+1)}`);
+//   }
+// }
+
+// const taulaMultiplicar = async () => {
+//   console.log('executing taulaMultiplicar');
+//   await getValues();
+//   console.log('calculem amb:');
+//   await printValues(prompt1, prompt2);
+// };
+
+// taulaMultiplicar();
+
+
+// Exercici 8
+const num1 = document.getElementById('num1');
+const num2 = document.getElementById('num2');
+const calculateBtn = document.getElementById('calcular');
+const calculateForm = document.getElementById('calculateForm');
+const tableMultiplicar = document.getElementById('table-multiplicar');
+const tableBody = document.getElementById('table-body');
+
+const createTableRows = (num1, num2) => {
+  let rowsTable = '';
   for (let i = 0; i <= num2-1; i++) {
     console.log(`${num1} * ${i+1} = ${num1 * (i+1)}`);
+    let rowElem = `
+      <tr>
+        <th scope="row">${i+1}</th>
+        <td>${num1} * ${i+1} = ${num1 * (i+1)}</td>
+      </tr>
+    `;
+    rowsTable += rowElem;
+  }
+  return rowsTable;
+};
+
+const taulaMultiplicarToTable = (n1, n2) => {
+  let tableRow = createTableRows(n1, n2);
+  tableBody.innerHTML = tableRow;
+};
+
+const validation = (nombre, field) => {
+  let errors = false;
+  let errorDiv = field === 1 ? 'error_num1' : 'error_num2';
+  if (nombre.value == '' || nombre.value == null) {
+    nombre.classList.add('is-invalid');
+    document.getElementById(errorDiv).textContent = "Introdueix un nombre";
+    errors = true;
+  } else if (isNaN(nombre.value)) {
+    nombre.classList.add('is-invalid');
+    document.getElementById(errorDiv).textContent = "No has introduït un nombre";
+    errors = true;
+  } else if (nombre.value == 0) {
+    nombre.classList.add('is-invalid');
+    document.getElementById(errorDiv).textContent = "No es pot multiplicar 0";
+    errors = true;
+  }
+  return errors;
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  calculateForm.classList.remove('is-invalid');
+
+  let errorsNum1 = validation(num1, 1);
+  let errorsNum2 = validation(num2, 2);
+
+  if(!errorsNum1 && !errorsNum2) {
+    taulaMultiplicarToTable(num1.value, num2.value);
   }
 }
 
-const taulaMultiplicar = async () => {
-  console.log('executing taulaMultiplicar');
-  await getValues();
-  console.log('calculem amb:');
-  await printValues(prompt1, prompt2);
-};
+calculateForm.addEventListener('blur', (e) => {
+  if (e.target.value != '') e.target.classList.remove('is-invalid');
+}, true);
 
-taulaMultiplicar();
+calculateBtn.addEventListener('click', (e) => {
+  e.preventDefault();
 
+  calculateForm.classList.remove('is-invalid');
 
+  let errorsNum1 = validation(num1, 1);
+  let errorsNum2 = validation(num2, 2);
+
+  if(!errorsNum1 && !errorsNum2) taulaMultiplicarToTable(num1.value, num2.value);
+});
